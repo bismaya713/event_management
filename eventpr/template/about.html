@@ -1,0 +1,90 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+{% block content%}
+{% block title %}
+About Us
+{% endblock %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        .about {
+    background-color: #f0f0f0;
+    padding: 50px 0;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .about h2 {
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .about p {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .about ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .about li {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .about li:before {
+    content: "\2022";
+    margin-right: 10px;
+  }
+    </style>
+</head>
+<body>
+    <section class="about">
+        <div class="container">
+        <h2>About Us</h2>
+        <p>We are a team of event enthusiasts who are passionate about helping you plan and execute successful events.</p>
+        <p>Our event management system is designed to make your life easier, with features such as:</p>
+        <ul>
+        <li>Event scheduling and management</li>
+        <li>Registration and ticketing</li>
+        <li>Marketing and promotion</li>
+        <li>Analytics and reporting</li>
+        </ul>
+        <p>Learn more about our team and how we can help you with your next event.</p>
+        </div>
+        </section>
+        <footer class="bg-gray-800 text-white p-4">  
+            <div class="container mx-auto flex justify-between items-center">  
+                <div class="flex items-center">  
+                    <img src="path/to/copyright-logo.png" alt="" class="h-6 mr-2" />  
+                    <span>&copy; 2023 Event Management Team. All rights reserved.</span>  
+                </div>  
+                <div class="flex space-x-4">  
+                    <a href="/privacy-policy" class="hover:underline">Privacy Policy</a>  
+                    <a href="/terms-of-service" class="hover:underline">Terms of Service</a>  
+                </div>  
+                <div class="flex space-x-4">  
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="hover:underline">Facebook</a>  
+                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="hover:underline">Twitter</a>  
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="hover:underline">Instagram</a>  
+                </div>  
+            </div>  
+        </footer>  
+</body>
+</html>
+{% endblock %}
