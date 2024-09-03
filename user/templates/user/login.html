@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <div class="container">
+        <div class="title">Login</div>
+        <div class="content">
+            <form method="post" action="">            
+                {% csrf_token %}      
+                {% for field in form %}
+                <div class="mb-3">
+                    <label for="recipient-name" class="col-form-label text-white">{{field.label}}:</label>
+                    {{field}}
+                </div>
+                {% endfor %}
+                               
+                <div>
+                    <button class="btn btn-primary w-full mt-5" type="submit">Log in</button>
+                </div>
+                <div class="d-flex justify-content-end">
+                    <a href="{% url 'user:forgot_password' %}"
+                        class="text-sm text-white mt-5 mb-5 text-primary-hover text-underline" style="font-weight: bold;">Forgot
+                        password?</a>
+                </div>
+                
+                
+            </form>
+            <div>
+                {% for message in messages %}  
+                <script>
+                    alert('{{message}}');
+                </script>
+                {% endfor %}
+                    </div>
+        </div>
+    </div>
+</body>
+</html>
