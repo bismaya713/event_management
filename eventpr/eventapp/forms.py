@@ -17,6 +17,7 @@ class BookingForm(forms.ModelForm):
             'cus_name' : "Customer Name",
             'cus_ph' : "Customer Phone",
             'name' : "Event Name",
+            'location' : "Location",
             'Booking_date' : "Booking Date",
 
         }
