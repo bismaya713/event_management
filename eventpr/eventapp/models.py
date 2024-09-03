@@ -13,4 +13,5 @@ class Booking(models.Model):
     cus_ph = models.CharField(max_length=12)
     name = models.ForeignKey(Event,on_delete=models.CASCADE)
     booking_date =models.DateField()
+    location = models.CharField(max_length=60)
     booked_on =models.DateField(auto_now=True)
