@@ -1,0 +1,250 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    {%block title%}
+
+    {% endblock title %}
+  </title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <link rel="stylesheet" href="{%static 'images/CSS/base.css' %}">
+  <style>
+    .nav li a {
+      font-size: 20px;
+      color: rgb(77, 170, 65);
+    }
+
+    .navbar-brand {
+      font-size: 25px;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      color: brown;
+    }
+
+
+
+    .container {
+      max-width: 700px;
+      margin: 50px auto;
+      background-color: #fff;
+      padding: 20px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    form {
+      margin-top: 20px;
+    }
+
+    .btn {
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #3e8e41;
+    }
+
+    .tex-center {
+      text-align: center;
+    }
+
+    /* Form Styles */
+
+    form label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    form input,
+    select {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+
+    form button[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    form button[type="submit"]:hover {
+      background-color: #3e8e41;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ............................header...................... -->
+
+  <header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+      <div class="container-fluid ms-5">
+        <a class="navbar-brand" href="#">
+          <img src="" alt="Logo" class="img-fluid" style="max-height: 40px;">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+          <div class="navbar-nav me-5">
+            <a class="nav-link active ms-5 me-5 fw-semibold" aria-current="page"
+              href="{%url 'index' %}">Home</a>
+            <a class="nav-link me-5 fw-semibold" href="{%url 'about' %}">About Us</a>
+            <a class="nav-link me-5 fw-semibold" href="{%url 'events' %}">Events</a>
+            <a class="nav-link me-5 fw-semibold" href="{%url 'booking' %}">Booking</a>
+            <a class="nav-link me-5 fw-semibold" href="{%url 'contact' %}">Contact Us</a>
+            <a class="nav-link me-5 fw-semibold" href="{% url 'login' %}">Login</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+
+{% comment %}
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Events</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="{%url 'index' %}">Home</a></li>
+        <li><a href="{%url 'about' %}">About</a></li>
+        {% if user.is_authenticated %}
+        <li><a href="{%url 'events' %}">Events</a></li>
+        <li><a href="{%url 'booking' %}">Booking</a></li>
+        <li><a href="{%url 'contact' %}">Contact</a></li>
+        <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-in"></span> LogOut</a></li>
+      </ul>
+      <h3>{{user.username}}</h3>
+      {% else %}
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{% url 'register' %}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        {% endif %}
+      </ul>
+    </div>
+  </nav>
+  {%   endcomment %}
+
+  {%block content%}
+
+  {%endblock content%}
+
+<!-- -------------------------Footer------------------------- -->
+
+<footer class="px-lg-5 ">
+  <div class="  border-bottom border-secondary ">
+    <div class="row mb-lg-4 ">
+
+      <div class="col-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+        <div class="row row-cols-2 row-cols-sm-2 footer_div_ul ">
+          <div class="m-auto">
+            <ul class="p-0">
+              <h6>About Us</h6>
+              <li><a href="">Our Services</a></li>
+              <li><a href="">Contact Us</a></li>
+              <li><a href="">Locate Us</a></li>
+              <li class="text-dark">.</li>
+            </ul>
+          </div>
+          <div class="m-auto">
+            <ul class="p-0">
+            <h6>Consumer Policy</h6>
+              <li><a href="">Security</a></li>
+              <li><a href="">Returns Policy</a></li>
+              <li><a href="">Terms & Conditions</a></li>
+              <li><a href="">Privacy Policy</a></li>
+            </ul>
+          </div>
+         
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+        <div class="row row-cols-2 row-cols-sm-2 footer_div_ul">
+          <div class="d-none d-md-block d-lg-block">
+            <ul>
+            <h6>Help</h6>
+              <li><a href="">Own Grown</a></li>
+              <li><a href="">Garden Services</a></li>
+              <li><a href="">Maintenance</a></li>
+            </ul>
+          </div>
+          <div class="text-start d-none d-md-block d-lg-block ">
+            <ul class="p-0">
+              <h6>Customer Care</h6>
+              <li><a href="">Track Order</a></li>
+              <li><a href="">Shipping Policy</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-4 col-lg-4 col-xl-4 col-xxl-4">
+        <div class="row row-cols-2 row-cols-sm-2   ms-lg-2  footer_div_ul mb-2">
+          <div class="border-end border-white m-auto">
+            <h6>Get in Touch</h6>
+            <p><i class="fa-solid fa-phone"></i> +91 -7735955569</p>
+            <p><i class="fa-solid fa-envelope"></i> niwacare@outlook.com</p>
+            
+            <h6>Socials:</h6>
+            <p class="fs-5 mt-3">
+              <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+              <a href="https://twitter.com"><i class="fa-brands fa-square-x-twitter"></i></a>
+            </p>
+          </div>
+          <div class="m-auto">
+            <h6>Registered Office Address</h6>
+            <p>Plot No: 3298/5536,<br>
+              C-8, Lane-5A,<br>
+              Gouri Nagar,<br>
+              Old Town (Khorda),<br>
+              Bhubaneswar, Khorda- 751002,<br>
+              Odisha</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="text-center mt-4 ps-3 pe-3 mt-lg-3 footer_subhead">
+    <p class="">This Website is Designed and Developed by Likun .</p>
+  </div>
+</footer>
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>
