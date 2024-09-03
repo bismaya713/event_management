@@ -1,0 +1,61 @@
+{% extends 'master.html' %}
+{% load static %}
+{%block title%}
+Login
+{% endblock title %}
+
+{% block content%}
+
+
+
+
+<section class="login_background">
+    <div class="login_card">
+      <div class="card">
+        <div class="row">
+          <div class="col-lg-6 col-md-6 col-sm-12 leftside_image">
+            <img src="{% static 'images\img.jpg' %}" alt="Login Image">
+          </div>
+          <div class="col-lg-6 col-md-6 col-sm-12 px-lg-3 border">
+            <form action="" method="post">
+                <h5 class="text-center mt-lg-3 mb-lg-4 fs-1 fw-bold">Welcome!</h5>
+                {% csrf_token %}
+                <div class="user-details">
+                    <div class="input-box">
+                        <label class="form-label">User Name : </label>
+                        <input type="text" name="username" class="form-control">
+                    </div>
+                    <div class="input-box">
+                        <label class="form-label">Password :</label>
+                        <input type="password" name="password" class="form-control">
+                    </div>
+                    <div class="button" >
+                        <input type="submit" class="Login_Button" name="submit" value="Login">
+                    </div>
+                    <div class="text-center w-100 sign_up">
+                        <small>Don't have an account?</small>
+                        <a href="{% url 'register' %}" class="ms-lg-1 text-warning text-decoration-none">Sign up</a>
+                      </div>
+                </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>
+        {% for message in messages %}  
+        <script>
+            alert('{{message}}');
+        </script>
+        {% endfor %}
+            </div>
+</div>
+  </section>
+
+    
+{% endblock content %}
+
+
+
+
+

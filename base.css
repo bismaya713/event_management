@@ -1,0 +1,94 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+:root{
+--primary:#FABC3F;
+--primary2:#821131;
+--secondary:#E85C0D;
+--secondary2:#A1DD70;
+--third:#C7253E;
+--black: #000000;
+--bg_color:#c9c7c7;
+--para:#141414;
+--white:#ffffff;
+--p:#C6EBC5;
+}
+
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body,html{
+    background-color: var(--bg_color);
+    font-family: "Poppins",sans-serif;
+}
+
+/* Footer css */
+
+/* ------------Footer  Section page CSS----------------------------------*/
+
+footer {
+    background-color: var(--para);
+    padding: 3rem 0;
+    color: var(--white);
+  }
+  
+  .footer_div_ul div ul li a {
+    text-decoration: none;
+    color: var(--white);
+    font-size:12px;
+    font-weight: 400;
+    line-height: 30px;
+  }
+  
+  .footer_div_ul div ul li a:hover{
+    color: var(--p);
+  }
+  
+  .footer_div_ul div p{
+  color: var(--p);
+  font-size:13px;
+  font-weight: 400;
+  text-transform: uppercase;
+  }
+  
+  
+  .footer_div_ul div p{
+    text-decoration: none;
+    color: var(--white);
+    font-size:12px;
+    font-weight: 400;
+    line-height: 25px;
+  }
+  .footer_div_ul div p i{
+    padding: 2px;
+  }
+  
+  .footer_div_ul div li {
+    list-style: none;
+  }
+  
+  .footer_subhead p{
+    text-decoration: none;
+    color: var(--white);
+    font-size:12px;
+    font-weight: 100;
+    line-height: auto;
+  }
+  
+  /* -------------------carousel start hero section------------------------ */
+
+#carouselExampleFade .carousel-inner{
+    margin-top: -10px;
+  }
+  .carousel-item img{
+    height: 33rem;
+    width: 100%;
+  }
+  
+  
+  

@@ -1,0 +1,67 @@
+
+   
+
+{% extends 'master.html' %}
+{% load static %}
+{%block title%}
+Login
+{% endblock title %}
+
+{% block content%}
+
+<section class=" login_background">
+    <div class="signup_card">
+      <div class="card " >
+        <div class="row">
+          <div class="col col-lg-6 px-lg-3">
+            <div class="card-body border  ">
+                <h5 class="text-center fs-3 fw-bold"> Create an Account !</h5>         
+               
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <div class="user-details">
+                        <div class="input-box">
+                            <label class="form-label">User Name : </label>
+                            <input class="form-control" type="text" name="username">
+                        </div>
+                        <div class="input-box">
+                            <label class="form-label">E-Mail ID : </label>
+                            <input class="form-control" type="email" name="email">
+                        </div>
+                        <div class="input-box">
+                            <label class="form-label">Password : </label>
+                            <input class="form-control" type="password" name="password">
+                        </div>
+                        <div class="input-box">
+                            <label class="form-label">Confirm Password : </label>
+                            <input class="form-control" type="password" name="confirmpassword">
+                        </div>
+                    </div>
+                    <div class="button">
+                        <input type="submit"class="Login_Button" name="submit" value="signup">
+                    </div>
+                </form>
+                <div class=" text-center w-100 sign_up">
+                    <small>Already have an account?</small>
+                    <a href="{% url 'login' %}" class="ms-lg-1 text-warning text-decoration-none ">Login</a>
+                  </div>
+              </div>
+              
+          </div>
+          <div class="col col-lg-6 leftside_image">
+            <img src="{% static 'images\crsl.jpg'%}" alt="">
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+{% for message in messages %}  
+    <script>
+        alert('{{message}}');
+    </script>
+    {% endfor %}
+
+
+    
+{% endblock content %}
