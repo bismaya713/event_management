@@ -1,0 +1,16 @@
+<h1>{{ event.title }}</h1>
+<p>{{ event.description }}</p>
+<p>Date: {{ event.event_date }}</p>
+<p>Location: {{ event.location }}</p>
+<p>Seats Available: {{ event.available_seats }}</p>
+
+{% if request.user.is_authenticated %}
+<form method="POST" action="{% url 'event:book_event' event.id %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Book Now</button>
+</form>
+{% else %}
+<p>Please <a href="{% url 'user:login' %}">login</a> to book this event.</p>
+{% endif %}
+<a href="{% url 'event:event_list' %}">Back to Events</a>

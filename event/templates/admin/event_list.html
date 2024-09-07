@@ -1,0 +1,24 @@
+<h1>Admin Event List</h1>
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Date</th>
+        <th>Location</th>
+        <th>Seats Available</th>
+        <th>Actions</th>
+    </tr>
+    {% for event in events %}
+    <tr>
+        <td>{{ event.title }}</td>
+        <td>{{ event.event_date }}</td>
+        <td>{{ event.location }}</td>
+        <td>{{ event.available_seats }}</td>
+        <td>
+            <a href="{% url 'event:admin_event_detail' event.id %}">View</a>
+            <a href="{% url 'event:edit_event' event.id %}" class="btn">Edit</a>
+            <a href="{% url 'event:delete_event' event.id %}" class="btn">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+<a href="{% url 'event:add_event' %}">Add New Event</a>

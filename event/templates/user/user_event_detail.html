@@ -1,0 +1,19 @@
+{% extends 'user/base.html' %}
+{% load static %}
+{% block title %}
+Event Details
+{% block content %}
+    <h1>{{ event.title }}</h1>
+    <p>{{ event.description }}</p>
+    <p><strong>Date:</strong> {{ event.event_date }}</p>
+    <p><strong>Location:</strong> {{ event.location }}</p>
+    <p><strong>Seats Available:</strong> {{ event.available_seats }}</p>
+    
+    <form method="POST" action="{% url 'event:book_event' event.id %}">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Book Now</button>
+    </form>
+    
+    <a href="{% url 'event:event_list' %}">Back to Events</a>
+    {% endblock content %}

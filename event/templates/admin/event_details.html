@@ -1,0 +1,10 @@
+<h1>{{ event.title }}</h1>
+<p>{{ event.description }}</p>
+<p>Date: {{ event.event_date }}</p>
+<p>Location: {{ event.location }}</p>
+<p>Seats Available: {{ event.available_seats }}</p>
+
+<a href="{% url 'event:edit_event' event.id %}">Edit Event</a>
+<a href="{% url 'event:delete_event' event.id %}">Delete Event</a>
+
+<a href="{% url 'event:admin_event_list' %}">Back to Event List</a>

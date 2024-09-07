@@ -1,0 +1,11 @@
+<h1>My Bookings</h1>
+<ul>
+    {% for booking in bookings %}
+    <li>
+        Event: {{ booking.event.title }} <br>
+        Seats Booked: {{ booking.seats_booked }} <br>
+        Date: {{ booking.booking_date }}
+    </li>
+    {% endfor %}
+</ul>
+<a href="{% url 'event:event_list' %}">Back to Events</a>

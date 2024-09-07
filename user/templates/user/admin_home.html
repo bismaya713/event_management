@@ -1,0 +1,66 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/admin_style.css' %}">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <ul>
+                <li><a href="{% url 'event:add_event' %}">Add Event</a></li>
+                <li><a href="{% url 'event:admin_event_list' %}">View Events</a></li>
+                <li><a href="{% url 'user:logout' %}">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Welcome to the Admin Dashboard</h1>
+        <p>Use the navigation menu to manage events and bookings.</p>
+
+        <section id="quick-actions">
+            <h2>Quick Actions</h2>
+            <div class="action-buttons">
+                <a href="{% url 'event:add_event' %}" class="btn">Create a New Event</a>
+                <a href="{% url 'event:admin_event_list' %}" class="btn">View All Events</a>
+            </div>
+        </section>
+
+        <section id="latest-events">
+            <h2>Recent Events</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Event Title</th>
+                        <th>Date</th>
+                        <th>Location</th>
+                        <th>Available Seats</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for event in recent_events %}
+                    <tr>
+                        <td>{{ event.title }}</td>
+                        <td>{{ event.event_date }}</td>
+                        <td>{{ event.location }}</td>
+                        <td>{{ event.available_seats }}</td>
+                        <td>
+                            <a href="{% url 'event:edit_event' event.id %}" class="btn">Edit</a>
+                            <a href="{% url 'event:delete_event' event.id %}" class="btn">Delete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+</body>
+</html>

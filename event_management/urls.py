@@ -7,6 +7,7 @@ urlpatterns = [
     
     
     path("", include("user.urls")),
+    path("event/", include("event.urls")),
     
 
 

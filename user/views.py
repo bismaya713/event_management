@@ -27,16 +27,17 @@ from django.utils.html import strip_tags
 from django.core.mail import EmailMultiAlternatives
 from django.conf import settings
 from user import decorator
-
+from event.models import Event
 
 class HomeView(View):
     template = "user/index.html"
     def get(self, request):
-        return render(request, self.template)
+        events = Event.objects.order_by('-event_date')[:3]
+        return render(request, self.template, {'events': events})
 
 @method_decorator(decorator.super_admin_only, name='dispatch')
 class AdminDashboard(View):
-    template = "kjnindex.html"
+    template = "user/admin_home.html"
 
     def get(self, request):
         return render(request, self.template)
